@@ -29,7 +29,7 @@
 
 | Version | Architecture | Download |
 |---------|--------------|----------|
-| **macOS 11+** | Universal (Intel + Apple Silicon) | [tauri-webrtc-chat.app.zip](https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBitChat.zip) |
+| **macOS 11+** | Universal (Intel + Apple Silicon) | [SecureBit.Chat_0.1.0_x64.dmg](https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.1.0_x64.dmg) |
 
 ###  Linux
 
