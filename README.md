@@ -11,8 +11,6 @@
 [![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=for-the-badge)](/)
 
-[Download](#-downloads) • [Security](#-security--trust) • [Installation](#-installation) • [Documentation](#-documentation) • [Support](#-bug-reports--support)
-
 </div>
 
 ---
