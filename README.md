@@ -18,9 +18,9 @@ Current release: **0.3.0**
 
 | Platform | Requirements | File |
 |---|---|---|
-| Windows | Windows 10 (1809+) or 11, x64 | [SecureBit.Chat_0.3.0_x64-setup.exe](https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.3.0_x64-setup.exe) |
-| macOS | macOS 11+, Intel or Apple Silicon | [SecureBit.Chat_0.3.0_x64.dmg](https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.3.0_x64.dmg) |
-| Linux | glibc 2.31+ (Ubuntu 20.04+, Debian 11+, Fedora 35+) | [SecureBit.Chat_0.3.0_amd64.AppImage](https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.3.0_amd64.AppImage) |
+| Windows | Windows 10 (1809+) or 11, x64 | [SecureBit.Chat_0.3.0_x64-setup.exe](https://github.com/SecureBitChat/securebit-desktop/releases/download/v0.3.0/SecureBit.Chat_0.3.0_x64-setup.exe) |
+| macOS | macOS 11+, Intel or Apple Silicon | [SecureBit.Chat_0.3.0_x64.dmg](https://github.com/SecureBitChat/securebit-desktop/releases/download/v0.3.0/SecureBit.Chat_0.3.0_x64.dmg) |
+| Linux | glibc 2.31+ (Ubuntu 20.04+, Debian 11+, Fedora 35+) | [SecureBit.Chat_0.3.0_amd64.AppImage](https://github.com/SecureBitChat/securebit-desktop/releases/download/v0.3.0/SecureBit.Chat_0.3.0_amd64.AppImage) |
 
 The macOS build is compiled for Intel and runs on Apple Silicon through Rosetta.
 
@@ -52,7 +52,7 @@ xattr -d com.apple.quarantine "/Applications/SecureBit Chat.app"
 ### Linux
 
 ```bash
-wget https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.3.0_amd64.AppImage
+wget https://github.com/SecureBitChat/securebit-desktop/releases/download/v0.3.0/SecureBit.Chat_0.3.0_amd64.AppImage
 chmod +x SecureBit.Chat_0.3.0_amd64.AppImage
 ./SecureBit.Chat_0.3.0_amd64.AppImage
 ```
