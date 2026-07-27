@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![SecureBit.chat Logo](logo/favicon.ico)
+<img src="logo/securebit-mark.svg" alt="SecureBit.chat" width="120">
 
 **Official desktop installers for SecureBit Chat - the world's most secure P2P messenger**
 
@@ -21,21 +21,48 @@
 
 | Version | Architecture | Download |
 |---------|--------------|----------|
-| **Windows 10/11** | x64 (NSIS Installer) | [SecureBit Chat_0.1.0_x64-setup.exe](https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.1.0_x64-setup.exe) |
+| **Windows 10/11** | x64 (NSIS Installer) | [SecureBit.Chat_0.1.0_x64-setup.exe](https://github.com/SecureBitChat/securebit-desktop/releases/download/v0.1.0/SecureBit.Chat_0.1.0_x64-setup.exe) |
 
 ###  macOS
 
 | Version | Architecture | Download |
 |---------|--------------|----------|
-| **macOS 11+** | Universal (Intel + Apple Silicon) | [SecureBit.Chat_0.1.0_x64.dmg](https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.1.0_x64.dmg) |
+| **macOS 11+** | Intel x64 (runs on Apple Silicon via Rosetta) | [SecureBit.Chat_0.3.0_x64.dmg](https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.3.0_x64.dmg) |
 
 ###  Linux
 
 | Distribution | Format | Download |
 |--------------|--------|----------|
-| **Universal Linux** | AppImage | [SecureBit Chat_0.1.0_amd64.AppImage](https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.1.0_amd64.AppImage) |
+| **Universal Linux** | AppImage | [SecureBit Chat_0.1.0_amd64.AppImage](https://github.com/SecureBitChat/securebit-desktop/releases/download/v0.1.0/SecureBit.Chat_0.1.0_amd64.AppImage) |
 
+> **Latest release**: macOS `0.3.0` · Windows and Linux `0.1.0` (rebuilt separately)
+>
 > ** Coming in Q1 2026**: Official distribution via Windows Store, Mac App Store, and Snap Store
+
+---
+
+## Automatic Updates
+
+From **0.3.0** onwards macOS builds update themselves — there is no need to come
+back here and download a new disk image for every release.
+
+The app checks for a new version shortly after launch, and you can check on demand
+by clicking the version number next to the SecureBit wordmark in the sidebar. When
+one is found, a prompt appears: **Update now** downloads and installs it, then
+offers to restart.
+
+**How the update is trusted.** Every update bundle is signed with an offline key
+that never leaves the maintainer's machine, and the app verifies that signature
+against a public key compiled into the binary *before* installing anything. An
+update that is unsigned, tampered with, or signed by anyone else is refused. That
+means neither GitHub nor the network can push code into your installation — the
+distribution channel is not part of the trust model.
+
+> **Coming from 0.1.0?** That build predates the updater, so download 0.3.0 once
+> from the table above. Updates after that are in-app.
+>
+> **Windows and Linux** are still on 0.1.0 and update manually for now; automatic
+> updates reach them with their next build.
 
 ---
 
