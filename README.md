@@ -1,15 +1,12 @@
-# SecureBit Desktop Applications
-
 <div align="center">
 
-<img src="logo/securebit-mark.svg" alt="SecureBit.chat" width="120">
+<img src="logo/securebit-mark.svg" alt="SecureBit.chat" width="110">
 
-**Official desktop installers for SecureBit Chat - the world's most secure P2P messenger**
+# SecureBit Desktop
 
-[![Core Repository](https://img.shields.io/badge/Core-Open%20Source-blue?style=for-the-badge)](https://github.com/SecureBitChat/securebit-core)
-[![Web Version](https://img.shields.io/badge/Web-Open%20Source-blue?style=for-the-badge)](https://github.com/SecureBitChat/securebit-chat)
-[![License](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)](LICENSE)
-[![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=for-the-badge)](/)
+**Native desktop applications for SecureBit Chat — a zero-server, peer-to-peer messenger with end-to-end encryption.**
+
+[Downloads](#downloads) · [Installing](#installing) · [Automatic updates](#automatic-updates) · [Verifying your download](#verifying-your-download) · [Security](#security-and-trust) · [Privacy](#privacy)
 
 </div>
 
@@ -17,468 +14,212 @@
 
 ## Downloads
 
+Current release: **0.3.0**
+
+| Platform | Requirements | File |
+|---|---|---|
+| Windows | Windows 10 (1809+) or 11, x64 | [SecureBit.Chat_0.3.0_x64-setup.exe](https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.3.0_x64-setup.exe) |
+| macOS | macOS 11+, Intel or Apple Silicon | [SecureBit.Chat_0.3.0_x64.dmg](https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.3.0_x64.dmg) |
+| Linux | glibc 2.31+ (Ubuntu 20.04+, Debian 11+, Fedora 35+) | [SecureBit.Chat_0.3.0_amd64.AppImage](https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.3.0_amd64.AppImage) |
+
+The macOS build is compiled for Intel and runs on Apple Silicon through Rosetta.
+
+All releases are on the [releases page](https://github.com/SecureBitChat/securebit-desktop/releases).
+
+---
+
+## Installing
+
 ### Windows
 
-| Version | Architecture | Download |
-|---------|--------------|----------|
-| **Windows 10/11** | x64 (NSIS Installer) | [SecureBit.Chat_0.1.0_x64-setup.exe](https://github.com/SecureBitChat/securebit-desktop/releases/download/v0.1.0/SecureBit.Chat_0.1.0_x64-setup.exe) |
+1. Run `SecureBit.Chat_0.3.0_x64-setup.exe`.
+2. SmartScreen may warn about an unrecognised app — choose **More info** → **Run anyway**.
+3. Follow the installer. It lands in `C:\Program Files\SecureBit Chat\`.
+4. Allow network access if Windows Firewall asks; the app needs it to reach peers directly.
 
-###  macOS
+### macOS
 
-| Version | Architecture | Download |
-|---------|--------------|----------|
-| **macOS 11+** | Intel x64 (runs on Apple Silicon via Rosetta) | [SecureBit.Chat_0.3.0_x64.dmg](https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.3.0_x64.dmg) |
+1. Open the `.dmg` and drag **SecureBit Chat** into Applications.
+2. On first launch, right-click the app and choose **Open** — a plain double-click will be blocked by Gatekeeper.
+3. Grant microphone and camera access when prompted, if you intend to use calls.
 
-###  Linux
-
-| Distribution | Format | Download |
-|--------------|--------|----------|
-| **Universal Linux** | AppImage | [SecureBit Chat_0.1.0_amd64.AppImage](https://github.com/SecureBitChat/securebit-desktop/releases/download/v0.1.0/SecureBit.Chat_0.1.0_amd64.AppImage) |
-
-> **Latest release**: macOS `0.3.0` · Windows and Linux `0.1.0` (rebuilt separately)
->
-> ** Coming in Q1 2026**: Official distribution via Windows Store, Mac App Store, and Snap Store
-
----
-
-## Automatic Updates
-
-From **0.3.0** onwards macOS builds update themselves — there is no need to come
-back here and download a new disk image for every release.
-
-The app checks for a new version shortly after launch, and you can check on demand
-by clicking the version number next to the SecureBit wordmark in the sidebar. When
-one is found, a prompt appears: **Update now** downloads and installs it, then
-offers to restart.
-
-**How the update is trusted.** Every update bundle is signed with an offline key
-that never leaves the maintainer's machine, and the app verifies that signature
-against a public key compiled into the binary *before* installing anything. An
-update that is unsigned, tampered with, or signed by anyone else is refused. That
-means neither GitHub nor the network can push code into your installation — the
-distribution channel is not part of the trust model.
-
-> **Coming from 0.1.0?** That build predates the updater, so download 0.3.0 once
-> from the table above. Updates after that are in-app.
->
-> **Windows and Linux** are still on 0.1.0 and update manually for now; automatic
-> updates reach them with their next build.
-
----
-
-##  Security & Trust
-
-### Why Trust SecureBit Desktop?
-
-SecureBit Desktop applications are built on a **transparent security architecture** that separates security-critical code from platform-specific UI:
-
-```
-┌─────────────────────────────────────────┐
-│   Desktop Application (Proprietary)    │
-│   • Native UI Components                │
-│   • Platform Integrations               │
-│   • System Notifications                │
-│   • Auto-update System                  │
-└──────────────┬──────────────────────────┘
-               │ Uses
-               ▼
-┌─────────────────────────────────────────┐
-│    SecureBit Core (Open Source)         │
-│   • All Cryptographic Operations        │
-│   • P2P Protocol Implementation         │
-│   • Key Exchange & Verification         │
-│   • End-to-End Encryption               │
-│   • WebRTC Security Layer               │
-└─────────────────────────────────────────┘
-```
-
-### Open Source Core
-
-The **entire security foundation** is open source and auditable:
-
-#### [securebit-core](https://github.com/SecureBitChat/securebit-core)
-Complete cryptographic engine with:
-- ECDH key exchange implementation
-- DTLS security layer
-- SAS verification protocol
-- ASN.1 validation
-- WebRTC security primitives
-- All encryption/decryption logic
-- Quantum-resistant cryptography roadmap
-
-#### [securebit-chat](https://github.com/SecureBitChat/securebit-chat)
-Full web version source code:
-- Complete UI implementation
-- User interface patterns
-- State management
-- P2P connection logic
-- All application features
-
-###  Desktop Application Architecture
-
-**What's Proprietary (UI Layer)**:
-- Platform-specific native UI components (Windows/macOS/Linux)
-- System integration code (menu bars, notifications, file pickers)
-- Auto-update infrastructure and delivery system
-- Platform-specific performance optimizations
-- Branding and design assets
-
-**What's Open Source (Security Layer)**:
-- **100% of cryptographic operations**
-- **100% of protocol implementation**
-- **100% of key exchange and verification**
-- **100% of encryption/decryption**
-- **All security-critical components**
-
-###  Why This Approach?
-
-This architecture follows industry best practices used by:
-
-| Project | Model | Example |
-|---------|-------|---------|
-| **Telegram** | Open protocol, closed desktop UI | Desktop apps proprietary, protocol open |
-| **Signal** | Open protocol, desktop wrapper | Core OSS, desktop builds proprietary elements |
-| **Visual Studio Code** | Open core, proprietary builds | OSS core, Microsoft builds with additions |
-| **Proton Mail** | Open crypto, proprietary UI | Crypto libs open, apps closed |
-
-**Benefits of this approach**:
-1. **Full Security Auditability** - All crypto code can be reviewed
-2. **Business Sustainability** - Platform development requires resources
-3. **Better User Experience** - Native integrations improve UX
-4. **Faster Development** - Focus resources on security and features
-5. **Trust Through Transparency** - Critical code is verifiable
-
-###  What Security Researchers Can Audit
-
-You have **complete access** to audit:
+If the app still refuses to start:
 
 ```bash
-# Clone the cryptographic core
-git clone https://github.com/SecureBitChat/securebit-core.git
-
-# Review all security-critical code
-cd securebit-core
-grep -r "encrypt\|decrypt\|key\|signature\|verify" src/
-
-# Run the test suite
-npm install
-npm test
-
-# Build and test locally
-npm run build
+xattr -d com.apple.quarantine "/Applications/SecureBit Chat.app"
 ```
 
-**Available for auditing**:
-- Full cryptographic implementation
-- Protocol specification and documentation
-- Key exchange mechanisms
-- Encryption algorithms and parameters
-- Authentication and verification logic
-- Network security layer (WebRTC/DTLS)
-- All security-relevant APIs
+### Linux
 
-**Not needed for security auditing**:
-- Platform UI rendering code
-- Window management logic
-- System notification formatting
-- Auto-update download mechanism
-- Theme and styling systems
-
-> **Key Principle**: If it touches your messages, keys, or connections - it's open source. If it draws buttons or manages windows - it's not security-critical.
-
-### Verification & Signatures
-
-All releases are cryptographically signed and verifiable:
-
-#### Windows
-```powershell
-# Verify digital signature
-Get-AuthenticodeSignature ".\SecureBit Chat_0.1.0_x64-setup.exe"
-
-# Expected output:
-# SignerCertificate: CN=SecureBit Inc.
-# Status: Valid
-```
-
-#### macOS
 ```bash
-# Verify code signature
-codesign -dvv "/Applications/tauri-webrtc-chat.app"
-
-# Check notarization
-spctl -a -vvv -t install "/Applications/tauri-webrtc-chat.app"
-
-# Expected: "accepted"
+wget https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.3.0_amd64.AppImage
+chmod +x SecureBit.Chat_0.3.0_amd64.AppImage
+./SecureBit.Chat_0.3.0_amd64.AppImage
 ```
 
-#### Linux
+To add it to your application menu:
+
 ```bash
-# Verify AppImage signature (if provided)
-gpg --verify "SecureBit Chat_0.1.0_amd64.AppImage.sig" "SecureBit Chat_0.1.0_amd64.AppImage"
+sudo mv SecureBit.Chat_0.3.0_amd64.AppImage /opt/securebit-chat.AppImage
 
-# Verify SHA256 checksum
-sha256sum -c SHA256SUMS.txt
-```
-
-## Installation
-
-### Windows Installation
-
-1. **Download** `SecureBit Chat_0.1.0_x64-setup.exe`
-2. **Run** the NSIS installer
-3. **Follow** the installation wizard
-4. **Launch** from Start Menu or Desktop shortcut
-
-**Installation Location**: `C:\Program Files\SecureBit Chat\`
-
-**First Launch**:
-- Windows may show SmartScreen warning (click "More info" → "Run anyway")
-- Grant permissions for network access if prompted
-- Application will check for updates automatically
-
-### macOS Installation
-
-1. **Download** `tauri-webrtc-chat.app.zip`
-2. **Unzip** the archive (double-click or use `unzip` command)
-3. **Drag** `tauri-webrtc-chat.app` to Applications folder
-4. **First launch**: Right-click app → "Open" (bypasses Gatekeeper)
-
-**Installation Location**: `/Applications/tauri-webrtc-chat.app`
-
-**First Launch**:
-- macOS may show "unidentified developer" warning
-- Right-click → Open (first time only)
-- Grant microphone/camera permissions if needed
-- Grant network access if prompted
-
-**Troubleshooting**:
-```bash
-# If app won't open, remove quarantine attribute
-xattr -d com.apple.quarantine /Applications/tauri-webrtc-chat.app
-
-# Or allow in Security & Privacy settings
-# System Preferences → Security & Privacy → General → "Open Anyway"
-```
-
-### Linux Installation
-
-#### AppImage (Universal - Recommended)
-```bash
-# Download
-wget https://github.com/SecureBitChat/securebit-desktop/releases/latest/download/SecureBit.Chat_0.1.0_amd64.AppImage
-
-# Make executable
-chmod +x SecureBit\ Chat_0.1.0_amd64.AppImage
-
-# Run
-./SecureBit\ Chat_0.1.0_amd64.AppImage
-
-# Optional: Integrate with system (creates desktop entry)
-./SecureBit\ Chat_0.1.0_amd64.AppImage --appimage-extract
-sudo mv squashfs-root /opt/securebit-chat
-sudo ln -s /opt/securebit-chat/AppRun /usr/local/bin/securebit-chat
-```
-
-**Alternative: Run directly without extraction**
-```bash
-# Move to a permanent location
-sudo mv "SecureBit Chat_0.1.0_amd64.AppImage" /opt/securebit-chat.AppImage
-
-# Create desktop entry
-cat > ~/.local/share/applications/securebit-chat.desktop << EOF
+cat > ~/.local/share/applications/securebit-chat.desktop <<'EOF'
 [Desktop Entry]
 Name=SecureBit Chat
 Exec=/opt/securebit-chat.AppImage
-Icon=securebit-chat
 Type=Application
 Categories=Network;InstantMessaging;
 EOF
 ```
 
-**Installation Location**: User's choice (AppImage is portable)
+---
+
+## Automatic updates
+
+The app checks for a new version shortly after launch, and on demand when you click the version number next to the SecureBit wordmark in the sidebar. When one is available you get a prompt: **Update now** downloads and installs it, then offers to restart.
+
+**Why the update is trustworthy.** Every update bundle is signed with a key that never leaves the maintainer's machine, and the app verifies that signature against a public key compiled into the binary *before* installing anything. A bundle that is unsigned, altered, or signed by any other key is refused. Neither GitHub nor the network is part of the trust model — compromising either does not let anyone push code into your installation.
+
+**Availability**
+
+| Platform | Status |
+|---|---|
+| macOS | Automatic updates from 0.3.0 onward |
+| Windows | Manual for now; automatic from the next build |
+| Linux | Manual for now; automatic from the next build |
+
+Version 0.1.0 predates the updater on every platform, so upgrading from it is a one-time manual download.
 
 ---
 
-## Distribution Channels
+## Verifying your download
 
-| Channel | Status | Availability | Updates | Notes |
-|---------|--------|--------------|---------|-------|
-| **GitHub Releases** | ✅ Available Now | Immediate | Manual/Auto | Direct download, latest features |
-| **Windows Store** | 🔄 Coming Q1 2026 | After review | Automatic | Official Microsoft distribution |
-| **Mac App Store** | 🔄 Coming Q1 2026 | After review | Automatic | Official Apple distribution |
-| **Snap Store** | 🔄 Coming Q1 2026 | After review | Automatic | Linux universal package |
-| **Flathub** | 🔄 Coming Q2 2026 | After review | Automatic | Linux sandboxed distribution |
+Compare the checksum of the file you downloaded against the list below.
 
+```bash
+# macOS / Linux
+shasum -a 256 <file>
+```
 
-##  System Requirements
+```powershell
+# Windows
+Get-FileHash .\SecureBit.Chat_0.3.0_x64-setup.exe -Algorithm SHA256
+```
 
-### Minimum Requirements
+| File | SHA-256 |
+|---|---|
+| `SecureBit.Chat_0.3.0_x64-setup.exe` | `1483902008b5b1e1192b01af73d045f4bc3c2c5cb645c273c1cb63f048f74f62` |
+| `SecureBit.Chat_0.3.0_x64.dmg` | `81e4e516692635aa13e927cd37420d3c1bd8a8d6aaec065b3291b8a63147cf59` |
+| `SecureBit.Chat_0.3.0_amd64.AppImage` | `f3d6cc19d16b97a61b2cce16695084129f22f6842af8433a6fc7b007fe8316d0` |
 
-| Platform | OS Version | RAM | Disk Space | Additional |
-|----------|-----------|-----|------------|------------|
-| **Windows** | Windows 10 (1809+) or 11 | 4 GB | 200 MB | Internet connection |
-| **macOS** | macOS 11 Big Sur or later | 4 GB | 200 MB | Internet connection |
-| **Linux** | Ubuntu 20.04+ / Debian 11+ / Fedora 35+ | 4 GB | 200 MB | GLIBC 2.31+, Internet |
+The macOS build is additionally code-signed; you can inspect it with:
 
-### Recommended Requirements
-
-| Platform | OS Version | RAM | Disk Space | Additional |
-|----------|-----------|-----|------------|------------|
-| **Windows** | Windows 11 | 8 GB | 500 MB | Webcam + Microphone |
-| **macOS** | macOS 13 Ventura or later | 8 GB | 500 MB | Webcam + Microphone |
-| **Linux** | Ubuntu 22.04+ / Fedora 38+ | 8 GB | 500 MB | Webcam + Microphone |
-
-### Network Requirements
-
-- **Ports**: UDP 3478 (STUN), UDP 19302-19309 (WebRTC)
-- **Firewall**: Allow P2P connections (WebRTC)
-- **NAT**: Most NAT types supported via STUN/TURN
-- **Bandwidth**: 128 kbps minimum for audio, 1 Mbps for video
+```bash
+codesign -dvv "/Applications/SecureBit Chat.app"
+```
 
 ---
 
-### Technical Documentation
+## Security and trust
 
-- **[Security Documentation](https://github.com/SecureBitChat/securebit-core/blob/main/SECURITY.md)** - Cryptographic implementation details
-- **[Protocol Specification](https://github.com/SecureBitChat/securebit-core/blob/main/docs/PROTOCOL.md)** - Technical protocol documentation
-- **[Architecture](https://github.com/SecureBitChat/securebit-core/blob/main/docs/ARCHITECTURE.md)** - System design and components
-- **[API Reference](https://github.com/SecureBitChat/securebit-core/blob/main/docs/API.md)** - Core API documentation
+### The split
 
+Everything that touches your messages, keys or connections is open source. The desktop applications are a wrapper around it.
 
-### Get Help
+```
+┌──────────────────────────────────────┐
+│  Desktop application (proprietary)   │
+│  Native UI, platform integration,    │
+│  window and notification handling,   │
+│  update delivery                     │
+└───────────────┬──────────────────────┘
+                │ calls into
+┌───────────────▼──────────────────────┐
+│  securebit-core (open source)        │
+│  Key exchange, encryption, protocol, │
+│  verification, file transfer crypto  │
+└──────────────────────────────────────┘
+```
 
-**For questions and support**:
-- **Community Forum**: [GitHub Discussions](https://github.com/SecureBitChat/securebit-desktop/discussions)
-- **Email**: support@securebit.chat
+### What you can audit
+
+| Repository | Contents | License |
+|---|---|---|
+| [securebit-core](https://github.com/SecureBitChat/securebit-core) | Every cryptographic operation and the full protocol implementation | Apache-2.0 |
+| [securebit-chat](https://github.com/SecureBitChat/securebit-chat) | The complete web client, including its UI | MIT |
+
+Start with [SECURITY_MODEL.md](https://github.com/SecureBitChat/securebit-core/blob/main/SECURITY_MODEL.md) and [THREAT_MODEL.md](https://github.com/SecureBitChat/securebit-core/blob/main/THREAT_MODEL.md) in the core repository — they state what is guaranteed and, just as importantly, what is not.
+
+```bash
+git clone https://github.com/SecureBitChat/securebit-core.git
+cd securebit-core
+cargo test
+```
+
+The test suite pins the protocol against the web implementation, so both clients cannot silently drift apart.
+
+### How a session is secured
+
+- Ephemeral ECDH P-384 key exchange, signed with ECDSA P-384, giving forward secrecy
+- AES-256-GCM for messages and file chunks, with HMAC-SHA-256 over the payload
+- A short verification code that both peers derive independently — comparing it out of band is what rules out an attacker in the middle
+- No server sees your traffic: connections are peer-to-peer, and a relay is used only when a direct connection is impossible, where it forwards ciphertext it cannot read
+
+### Reporting a vulnerability
+
+Email security@securebit.chat rather than opening a public issue. Include a description, the affected version, and a reproduction if you have one. Responsible disclosure, 90-day window.
 
 ---
 
-## Contributing
+## Privacy
 
-While the desktop application source code is not publicly available, there are many ways to contribute to SecureBit:
+The applications collect nothing. There is no analytics, no telemetry, no usage statistics, and no crash reporting.
 
-### Contribute to Open Source Core
+There is also nothing to collect on a server, because there is no server holding your data: no accounts, no stored messages, no contact lists, no connection logs, no keys.
 
-#### [securebit-core](https://github.com/SecureBitChat/securebit-core)
-The cryptographic engine and protocol implementation:
-- Improve encryption algorithms
-- Enhance protocol security
-- Fix bugs in core components
-- Add new security features
-- Write tests and documentation
+---
 
-#### [securebit-chat](https://github.com/SecureBitChat/securebit-chat)
-The web version with full source code:
-- Improve user interface
-- Add new features
-- Fix bugs
-- Enhance performance
-- Write tests
+## System requirements
+
+| Platform | Minimum | Recommended |
+|---|---|---|
+| Windows | Windows 10 (1809+), 4 GB RAM, 200 MB disk | Windows 11, 8 GB RAM |
+| macOS | macOS 11, 4 GB RAM, 200 MB disk | macOS 13+, 8 GB RAM |
+| Linux | glibc 2.31+, 4 GB RAM, 200 MB disk | Ubuntu 22.04+ / Fedora 38+, 8 GB RAM |
+
+Calls need a webcam and microphone. Bandwidth: roughly 128 kbps for audio, 1 Mbps for video.
+
+Networking: the app uses WebRTC and needs outbound UDP for STUN (port 3478) and peer traffic. Restrictive firewalls fall back to a TLS relay on port 443.
+
+---
+
+## Status and roadmap
+
+The desktop applications are in public beta. The cryptographic core is production-ready and shared with the web client; what is still being refined is platform integration and UI polish.
+
+Planned:
+
+- Automatic updates on Windows and Linux
+- Distribution through the Microsoft Store, Mac App Store and Snap Store
+- Mobile applications
+- Group chats
+- Post-quantum key exchange
+
+Feature requests are tracked in [Issues](https://github.com/SecureBitChat/securebit-desktop/issues).
+
+---
+
+## Support and contributing
+
+Questions and bug reports: [Issues](https://github.com/SecureBitChat/securebit-desktop/issues) or support@securebit.chat.
+
+The desktop wrapper is not open source, but the parts that matter are, and contributions there are welcome — [securebit-core](https://github.com/SecureBitChat/securebit-core) for cryptography and protocol, [securebit-chat](https://github.com/SecureBitChat/securebit-chat) for the client itself.
 
 ---
 
 ## License
 
-### Desktop Applications
-- **License**: Proprietary
-- **Usage**: Free for personal and commercial use
-- **Restrictions**: No reverse engineering, redistribution requires permission
-- **Terms**: See [LICENSE](LICENSE) for full terms
+The desktop applications are proprietary and free for personal and commercial use. Redistribution requires permission; reverse engineering is not permitted. See [LICENSE](LICENSE).
 
----
+The open-source components keep their own licenses: securebit-core under Apache-2.0, securebit-chat under MIT.
 
-## ⚠️ Beta Notice
-
-SecureBit Desktop applications are currently in **public beta** (v0.1.x). While the core cryptographic components are production-ready and battle-tested, the desktop wrapper applications are being actively refined.
-
-**What this means**:
-- Security features are fully functional and audited
-- Core messaging features work reliably
-- UI polish and platform integration improvements ongoing
-- Some edge cases and minor bugs may exist
-- Performance optimizations in progress
-
----
-
-## Privacy & Data
-
-### What We Collect: Nothing
-
-SecureBit is designed with **zero data collection**:
-
-- ❌ No analytics or telemetry
-- ❌ No usage statistics
-- ❌ No crash reports (unless you opt-in)
-- ❌ No personal information
-- ❌ No message metadata
-- ❌ No contact lists stored on servers
-
-### What We Store: Nothing
-
-- ❌ No messages stored on servers
-- ❌ No user accounts on servers
-- ❌ No connection logs
-- ❌ No IP addresses logged
-- ❌ No encryption keys stored
-
----
-
-## Roadmap
-
-### Q1 2026
-- Desktop beta releases
-- Windows Store submission
-- Mac App Store submission
-- Snap Store submission
-- Group chat support
-- File transfer improvements
-
-### Q2 2026
-- Mobile apps (iOS/Android)
-- Hardware security key support
-- Multi-device sync
-- Themes and customization
-- Advanced statistics
-
-### Q3 2026
-- Quantum-resistant cryptography
-- Message search improvements
-- Video call enhancements
-
-Vote on features in [Discussions](https://github.com/SecureBitChat/securebit-desktop/discussions).
-
----
-
-## Support the Project
-
-### Ways to Support
-
-- ⭐ **Star the repositories** on GitHub
-- 🐛 **Report bugs** and test beta features
-- 📢 **Spread the word** to friends and colleagues
-
-### Enterprise Support
-
-Need help deploying SecureBit in your organization?
-- Custom deployment support
-- Training and onboarding
-- Priority support
-- Custom features
-
-
----
-
-
-<div align="center">
-
-**🔒 Built with privacy in mind by the SecureBit Team**
-
-[⬆ Back to Top](#securebit-desktop-applications)
-
----
-
-Made with ❤️ for privacy advocates worldwide
-
-Copyright © 2025-2026 SecureBit Inc. All rights reserved.
-
-</div>
+Copyright © 2025-2026 SecureBit. All rights reserved.
