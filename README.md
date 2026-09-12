@@ -14,15 +14,15 @@
 
 ## Downloads
 
-Current release: **0.5.0** — group chats over a peer-to-peer mesh.
+Current release: **1.0.3** — video that survives a group call, and the same network configuration as the web client.
 
 | Platform | Requirements | File |
 |---|---|---|
-| Windows | Windows 10 (1809+) or 11, x64 | [SecureBit.Chat_0.5.0_x64-setup.exe](https://github.com/SecureBitChat/securebit-desktop/releases/download/v0.5.0/SecureBit.Chat_0.5.0_x64-setup.exe) |
-| macOS | macOS 11+, Intel or Apple Silicon | [SecureBit.Chat_0.5.0_x64.dmg](https://github.com/SecureBitChat/securebit-desktop/releases/download/v0.5.0/SecureBit.Chat_0.5.0_x64.dmg) |
-| Linux — any distribution | glibc 2.31+ (Ubuntu 20.04+, Debian 11+, Fedora 35+) | [SecureBit.Chat_0.5.0_amd64.AppImage](https://github.com/SecureBitChat/securebit-desktop/releases/download/v0.5.0/SecureBit.Chat_0.5.0_amd64.AppImage) |
-| Linux — Debian / Ubuntu | glibc 2.31+, x86_64 | [SecureBit.Chat_0.5.0_amd64.deb](https://github.com/SecureBitChat/securebit-desktop/releases/download/v0.5.0/SecureBit.Chat_0.5.0_amd64.deb) |
-| Linux — Fedora / RHEL / openSUSE | glibc 2.31+, x86_64 | [SecureBit.Chat-0.5.0-1.x86_64.rpm](https://github.com/SecureBitChat/securebit-desktop/releases/download/v0.5.0/SecureBit.Chat-0.5.0-1.x86_64.rpm) |
+| Windows | Windows 10 (1809+) or 11, x64 | [SecureBit.Chat_1.0.3_x64-setup.exe](https://github.com/SecureBitChat/securebit-desktop/releases/download/v1.0.3/SecureBit.Chat_1.0.3_x64-setup.exe) |
+| macOS | macOS 11+, Intel or Apple Silicon | [SecureBit.Chat_1.0.3_x64.dmg](https://github.com/SecureBitChat/securebit-desktop/releases/download/v1.0.3/SecureBit.Chat_1.0.3_x64.dmg) |
+| Linux — any distribution | glibc 2.31+ (Ubuntu 20.04+, Debian 11+, Fedora 35+) | [SecureBit.Chat_1.0.3_amd64.AppImage](https://github.com/SecureBitChat/securebit-desktop/releases/download/v1.0.3/SecureBit.Chat_1.0.3_amd64.AppImage) |
+| Linux — Debian / Ubuntu | glibc 2.31+, x86_64 | [SecureBit.Chat_1.0.3_amd64.deb](https://github.com/SecureBitChat/securebit-desktop/releases/download/v1.0.3/SecureBit.Chat_1.0.3_amd64.deb) |
+| Linux — Fedora / RHEL / openSUSE | glibc 2.31+, x86_64 | [SecureBit.Chat-1.0.3-1.x86_64.rpm](https://github.com/SecureBitChat/securebit-desktop/releases/download/v1.0.3/SecureBit.Chat-1.0.3-1.x86_64.rpm) |
 
 The macOS build is compiled for Intel and runs on Apple Silicon through Rosetta.
 
@@ -48,7 +48,7 @@ New in 0.5.0. A group is a mesh of the same peer-to-peer links the app already u
 
 ### Windows
 
-1. Run `SecureBit.Chat_0.5.0_x64-setup.exe`.
+1. Run `SecureBit.Chat_1.0.3_x64-setup.exe`.
 2. SmartScreen may warn about an unrecognised app — choose **More info** → **Run anyway**.
 3. Follow the installer. It lands in `C:\Program Files\SecureBit Chat\`.
 4. Allow network access if Windows Firewall asks; the app needs it to reach peers directly.
@@ -70,15 +70,15 @@ xattr -d com.apple.quarantine "/Applications/SecureBit Chat.app"
 **AppImage** — works on any distribution, nothing to install:
 
 ```bash
-wget https://github.com/SecureBitChat/securebit-desktop/releases/download/v0.5.0/SecureBit.Chat_0.5.0_amd64.AppImage
-chmod +x SecureBit.Chat_0.5.0_amd64.AppImage
-./SecureBit.Chat_0.5.0_amd64.AppImage
+wget https://github.com/SecureBitChat/securebit-desktop/releases/download/v1.0.3/SecureBit.Chat_1.0.3_amd64.AppImage
+chmod +x SecureBit.Chat_1.0.3_amd64.AppImage
+./SecureBit.Chat_1.0.3_amd64.AppImage
 ```
 
 To add it to your application menu:
 
 ```bash
-sudo mv SecureBit.Chat_0.5.0_amd64.AppImage /opt/securebit-chat.AppImage
+sudo mv SecureBit.Chat_1.0.3_amd64.AppImage /opt/securebit-chat.AppImage
 
 cat > ~/.local/share/applications/securebit-chat.desktop <<'EOF'
 [Desktop Entry]
@@ -92,13 +92,13 @@ EOF
 **Debian / Ubuntu:**
 
 ```bash
-sudo apt install ./SecureBit.Chat_0.5.0_amd64.deb
+sudo apt install ./SecureBit.Chat_1.0.3_amd64.deb
 ```
 
 **Fedora / RHEL / openSUSE:**
 
 ```bash
-sudo dnf install ./SecureBit.Chat-0.5.0-1.x86_64.rpm
+sudo dnf install ./SecureBit.Chat-1.0.3-1.x86_64.rpm
 ```
 
 The `.deb` and `.rpm` packages register the app in your menu and pull in the WebKitGTK runtime through your package manager; the AppImage carries its own copy.
@@ -134,16 +134,16 @@ shasum -a 256 <file>
 
 ```powershell
 # Windows
-Get-FileHash .\SecureBit.Chat_0.5.0_x64-setup.exe -Algorithm SHA256
+Get-FileHash .\SecureBit.Chat_1.0.3_x64-setup.exe -Algorithm SHA256
 ```
 
 | File | SHA-256 |
 |---|---|
-| `SecureBit.Chat_0.5.0_x64-setup.exe` | `17c7e6fed110b7fd4f08b4a434abd6575eff5f97c3fa4f69b98140c9f1d375e5` |
-| `SecureBit.Chat_0.5.0_x64.dmg` | `01d602ee9f124f70e5c23a5b9bb8a2d03979776c1f22cdedbdffc4789195f7fd` |
-| `SecureBit.Chat_0.5.0_amd64.AppImage` | `f0b60851e27cc38ed3636d7522cdcb06dd525d9b789e60f104370299b2f187ca` |
-| `SecureBit.Chat_0.5.0_amd64.deb` | `97c9eb9234b5b60b70625d2b671141140d65356f63680bb48b4b7a510108353f` |
-| `SecureBit.Chat-0.5.0-1.x86_64.rpm` | `863ff47135a00a1195b21299b26416fb45ebe9541dc789f37b1b1dd473854976` |
+| `SecureBit.Chat_1.0.3_x64-setup.exe` | `be67d3ee00db70eb59fb5f3badf5ee727117ae57f6393587252347057c108a60` |
+| `SecureBit.Chat_1.0.3_x64.dmg` | `339e2b7dfe8f924f22eb3721cc3eba48213a0f83c8b162d4ac5b3deb0bcf776b` |
+| `SecureBit.Chat_1.0.3_amd64.AppImage` | `f2052fba2f4b8f0d07187c3f742af84adf9b3949163e56e8385aa78529ff53dc` |
+| `SecureBit.Chat_1.0.3_amd64.deb` | `723118a8d0daabcb72dc0aef7c823aa4bb1d1a583bc487704579cea061b8009c` |
+| `SecureBit.Chat-1.0.3-1.x86_64.rpm` | `af21fa2ecc47aec6d7d239f1b629c99abad35023330e31e992f10071d729de09` |
 
 The macOS build is additionally code-signed; you can inspect it with:
 
