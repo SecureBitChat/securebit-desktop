@@ -23,6 +23,7 @@ Current release: **1.0.4** — a fresh relay password every day instead of one b
 | Linux — any distribution | glibc 2.31+ (Ubuntu 20.04+, Debian 11+, Fedora 35+) | [SecureBit.Chat_1.0.4_amd64.AppImage](https://github.com/SecureBitChat/securebit-desktop/releases/download/v1.0.4/SecureBit.Chat_1.0.4_amd64.AppImage) |
 | Linux — Debian / Ubuntu | glibc 2.31+, x86_64 | [SecureBit.Chat_1.0.4_amd64.deb](https://github.com/SecureBitChat/securebit-desktop/releases/download/v1.0.4/SecureBit.Chat_1.0.4_amd64.deb) |
 | Linux — Fedora / RHEL / openSUSE | glibc 2.31+, x86_64 | [SecureBit.Chat-1.0.4-1.x86_64.rpm](https://github.com/SecureBitChat/securebit-desktop/releases/download/v1.0.4/SecureBit.Chat-1.0.4-1.x86_64.rpm) |
+| Linux — Flatpak | any distribution with Flatpak, x86_64 | [SecureBit.Chat_1.0.4_x86_64.flatpak](https://github.com/SecureBitChat/securebit-desktop/releases/download/v1.0.4/SecureBit.Chat_1.0.4_x86_64.flatpak) |
 
 The macOS build is compiled for Intel and runs on Apple Silicon through Rosetta.
 
@@ -107,6 +108,16 @@ sudo dnf install ./SecureBit.Chat-1.0.4-1.x86_64.rpm
 sudo snap install securebit-chat
 ```
 
+**Flatpak** — a bundle file; the GNOME runtime it needs comes from Flathub on first install:
+
+```bash
+wget https://github.com/SecureBitChat/securebit-desktop/releases/download/v1.0.4/SecureBit.Chat_1.0.4_x86_64.flatpak
+flatpak install --user ./SecureBit.Chat_1.0.4_x86_64.flatpak
+flatpak run chat.securebit.SecureBit
+```
+
+The app is not listed on Flathub itself, so a new version is installed the same way, from the new file.
+
 The `.deb` and `.rpm` packages register the app in your menu and pull in the WebKitGTK runtime through your package manager; the AppImage carries its own copy.
 
 ---
@@ -150,6 +161,7 @@ Get-FileHash .\SecureBit.Chat_1.0.4_x64-setup.exe -Algorithm SHA256
 | `SecureBit.Chat_1.0.4_amd64.AppImage` | `5ece89d3f58777390f9525d06a939ffbf32b6f77af78a56e74085b7c08fa89ff` |
 | `SecureBit.Chat_1.0.4_amd64.deb` | `b19446044b9ed4fc15ee47fce7a29c003f673d17123149ac54b7f51e86c41ec8` |
 | `SecureBit.Chat-1.0.4-1.x86_64.rpm` | `ddcbde123819f771165d12461fee1a0d9e12f1bef206d6be4194db64b07805b5` |
+| `SecureBit.Chat_1.0.4_x86_64.flatpak` | `92b6cc249ae43919d8434b7d57e7568a2773076b9a08af8287193fd7c3c259c2` |
 
 The macOS build is additionally code-signed; you can inspect it with:
 
